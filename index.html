@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PullDistrict, Pokémon TCG singles &amp; sealed</title>
+<meta name="description" content="PullDistrict verkoopt Pokémon TCG singles en sealed op beurzen in Nederland en België. Bekijk waar we staan en verkoop je collectie.">
+<meta property="og:title" content="PullDistrict">
+<meta property="og:description" content="Pokémon TCG singles &amp; sealed. Kijk waar we deze maand staan.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17181A;
+  --ink-2:#1D1F22;
+  --ink-3:#26282C;
+  --copper:#C8873F;
+  --copper-dim:rgba(200,135,63,.16);
+  --bone:#F4F1EC;
+  --muted:#9B968F;
+  --line:rgba(244,241,236,.10);
+  --display:'Archivo',system-ui,sans-serif;
+  --body:'Inter Tight',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--bone);
+  font-family:var(--body);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1080px,100% - 2.5rem);margin-inline:auto}
+
+/* ---------- type ---------- */
+h1,h2,h3{font-family:var(--display);font-weight:800;text-transform:uppercase;margin:0;line-height:.95;letter-spacing:-.01em;font-stretch:112%}
+h1{font-size:clamp(2.8rem,9vw,5.6rem)}
+h2{font-size:clamp(1.9rem,4.6vw,3rem)}
+h3{font-size:1.15rem;letter-spacing:.01em;font-stretch:100%}
+p{margin:0 0 1rem}
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--copper);margin:0 0 1.1rem
+}
+.lead{font-size:1.12rem;color:var(--muted);max-width:52ch}
+
+/* ---------- chevron merk ---------- */
+.chev{width:34px;height:26px;flex:none}
+.chev path{fill:none;stroke:var(--copper);stroke-width:9;stroke-linecap:square}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:20;background:rgba(23,24,26,.86);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)
+}
+.bar{display:flex;align-items:center;gap:1.4rem;padding:.9rem 0}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand span{font-family:var(--display);font-weight:900;font-stretch:118%;letter-spacing:.02em;font-size:1.05rem}
+nav{margin-left:auto;display:flex;gap:1.6rem}
+nav a{
+  font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;text-decoration:none;color:var(--muted);padding:.3rem 0
+}
+nav a:hover{color:var(--bone)}
+@media(max-width:720px){nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(3.5rem,9vw,7rem) 0 clamp(2.5rem,6vw,4rem);position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;inset:auto -10% -55% 55%;height:70%;
+  background:radial-gradient(closest-side,var(--copper-dim),transparent);pointer-events:none
+}
+.hero h1{margin-bottom:1.4rem}
+.hero h1 em{font-style:normal;color:var(--copper)}
+
+/* ---------- volgende beurs, signature ---------- */
+.next{
+  margin-top:2.6rem;border:1px solid var(--line);background:
+    linear-gradient(180deg,rgba(200,135,63,.07),transparent 60%),var(--ink-2);
+  border-radius:2px;padding:1.6rem;display:grid;gap:1.2rem;
+  grid-template-columns:auto 1fr auto;align-items:center;position:relative
+}
+.next::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--copper)}
+.next .count{font-family:var(--display);font-size:3.2rem;font-weight:900;font-stretch:118%;line-height:.85;color:var(--copper)}
+.next .count small{display:block;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--muted);margin-top:.5rem}
+.next .naam{font-family:var(--display);font-weight:800;font-stretch:110%;text-transform:uppercase;font-size:1.5rem;line-height:1}
+.next .meta{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.55rem;letter-spacing:.04em}
+@media(max-width:720px){
+  .next{grid-template-columns:1fr;padding:1.3rem}
+  .next .count{font-size:2.4rem}
+}
+
+/* ---------- secties ---------- */
+section{padding:clamp(3.5rem,8vw,6rem) 0;border-top:1px solid var(--line)}
+.sec-head{margin-bottom:2.6rem}
+
+/* ---------- agenda ---------- */
+.beurs{
+  display:grid;grid-template-columns:120px 1fr auto;gap:1.5rem;align-items:center;
+  padding:1.5rem 0;border-bottom:1px solid var(--line)
+}
+.beurs:first-child{border-top:1px solid var(--line)}
+.datum{font-family:var(--mono);font-weight:700;line-height:1.25}
+.datum .dag{font-family:var(--display);font-size:2.4rem;font-weight:900;font-stretch:112%;display:block;line-height:.9}
+.datum .mnd{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copper)}
+.datum .jaar{font-size:.68rem;color:var(--muted);letter-spacing:.12em}
+.beurs .info h3{margin-bottom:.4rem}
+.beurs .info p{margin:0;font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.03em}
+.tag{
+  font-family:var(--mono);font-size:.64rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  border:1px solid var(--copper);color:var(--copper);padding:.35rem .6rem;border-radius:2px;white-space:nowrap
+}
+.tag.voorbehoud{border-color:var(--line);color:var(--muted)}
+@media(max-width:720px){
+  .beurs{grid-template-columns:64px 1fr;gap:1rem}
+  .datum .dag{font-size:1.7rem}
+  .tag{grid-column:2}
+}
+.leeg{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding:2rem 0;letter-spacing:.04em}
+
+/* ---------- inkoop ---------- */
+.inkoop{display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem;align-items:start}
+@media(max-width:820px){.inkoop{grid-template-columns:1fr;gap:2.2rem}}
+.stappen{list-style:none;margin:0;padding:0;counter-reset:s}
+.stappen li{
+  counter-increment:s;display:grid;grid-template-columns:auto 1fr;gap:1rem;
+  padding:1.1rem 0;border-bottom:1px solid var(--line)
+}
+.stappen li::before{
+  content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:.72rem;
+  font-weight:700;color:var(--copper);padding-top:.35rem;letter-spacing:.1em
+}
+.stappen strong{display:block;font-family:var(--display);text-transform:uppercase;font-stretch:105%;letter-spacing:.02em;font-size:.95rem;margin-bottom:.15rem}
+.stappen span{color:var(--muted);font-size:.95rem}
+.pct{
+  border:1px solid var(--line);background:var(--ink-2);border-radius:2px;padding:1.8rem;text-align:left
+}
+.pct .groot{font-family:var(--display);font-weight:900;font-stretch:118%;font-size:4.2rem;line-height:.85;color:var(--copper)}
+.pct .onder{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.8rem}
+.pct p{margin:1.2rem 0 0;font-size:.95rem;color:var(--muted)}
+
+/* ---------- socials ---------- */
+.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.social{
+  display:flex;align-items:center;gap:1rem;text-decoration:none;
+  border:1px solid var(--line);background:var(--ink-2);border-radius:2px;padding:1.2rem 1.3rem;
+  transition:border-color .18s ease,transform .18s ease,background .18s ease
+}
+.social:hover{border-color:var(--copper);background:var(--ink-3);transform:translateY(-2px)}
+.social svg.icon{width:22px;height:22px;fill:var(--copper);flex:none}
+.social b{font-family:var(--display);text-transform:uppercase;font-stretch:108%;font-size:.95rem;letter-spacing:.02em;display:block}
+.social em{font-style:normal;font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+.social .pijl{margin-left:auto;color:var(--muted);font-family:var(--mono)}
+
+/* ---------- contact ---------- */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem}
+@media(max-width:820px){.contact{grid-template-columns:1fr;gap:2rem}}
+.kaart{border:1px solid var(--line);background:var(--ink-2);border-radius:2px;padding:1.6rem}
+.kaart h3{margin-bottom:.6rem}
+.mail{
+  display:inline-flex;align-items:center;gap:.6rem;margin-top:.4rem;
+  font-family:var(--mono);font-size:.9rem;color:var(--copper);text-decoration:none;border-bottom:1px solid var(--copper-dim);padding-bottom:.2rem
+}
+.mail:hover{border-color:var(--copper)}
+.kvk{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin-top:1.4rem;letter-spacing:.04em}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:2.5rem 0;font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+.foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+.disclaimer{max-width:60ch;line-height:1.7}
+
+/* ---------- motion ---------- */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .social:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">
+      <svg class="chev" viewBox="0 0 100 60" aria-hidden="true">
+        <path d="M4 8 L26 30 L4 52"/><path d="M28 8 L50 30 L28 52"/>
+        <path d="M52 8 L74 30 L52 52"/><path d="M76 8 L98 30 L76 52"/>
+      </svg>
+      <span>PullDistrict</span>
+    </a>
+    <nav>
+      <a href="#agenda">Beurzen</a>
+      <a href="#inkoop">Verkoop je collectie</a>
+      <a href="#socials">Volgen</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Pokémon TCG, singles &amp; sealed</p>
+      <h1>Wij staan<br>op de <em>beurs</em>.</h1>
+      <p class="lead">Geen webshop, geen wachten op pakketjes. Je vindt onze case op beurzen door Nederland en België: vintage, moderne singles, slabs en sealed. Kom langs, pak de kaart in je hand.</p>
+
+      <div class="next" id="next" hidden>
+        <div class="count" id="nextCount">--<small id="nextCountLabel">dagen</small></div>
+        <div>
+          <div class="naam" id="nextNaam"></div>
+          <div class="meta" id="nextMeta"></div>
+        </div>
+        <div class="tag" id="nextTag"></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="agenda">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Agenda</p>
+        <h2>Waar je ons vindt</h2>
+      </div>
+      <div id="lijst"><p class="leeg">Agenda laden.</p></div>
+    </div>
+  </section>
+
+  <section id="inkoop">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Inkoop</p>
+        <h2>Verkoop je<br>collectie</h2>
+      </div>
+      <div class="inkoop">
+        <div class="reveal">
+          <p class="lead" style="margin-bottom:2rem">Van één dure kaart tot een hele binder of zolderdoos. We kopen rechtstreeks van verzamelaars, betalen direct en nemen alles in één keer over. Geen consignment, geen gedoe achteraf.</p>
+          <ol class="stappen">
+            <li><div><strong>Stuur je lijst</strong><span>Mail of DM een lijst of gewoon foto's van je kaarten. Grote collectie? Foto's van de binderpagina's zijn genoeg.</span></div></li>
+            <li><div><strong>Je krijgt een bod</strong><span>We taxeren op actuele marktwaarde en sturen je een bod met uitleg per onderdeel.</span></div></li>
+            <li><div><strong>Ophalen of op de beurs</strong><span>Akkoord? Dan regelen we de overdracht en betalen we direct.</span></div></li>
+          </ol>
+        </div>
+        <div class="pct reveal">
+          <div class="groot">90%</div>
+          <div class="onder">tot 90% van de marktwaarde</div>
+          <p>Wat we bieden hangt af van staat, vraag en hoeveel werk het kost om de kaarten weer weg te zetten. Sets, slabs en gewilde moderne kaarten zitten aan de bovenkant.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="socials">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Volgen</p>
+        <h2>Nieuwe voorraad<br>zie je hier eerst</h2>
+      </div>
+      <div class="socials reveal">
+        <!-- LINKS AANPASSEN: vervang de href en de @naam -->
+        <a class="social" href="https://instagram.com/pulldistrict" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 1.8.25 2.2.42.6.22 1 .48 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.1 0-3.5 0-4.8.07-1.1.05-1.7.24-2.1.4-.5.2-.9.44-1.3.84-.4.4-.64.8-.84 1.3-.16.4-.35 1-.4 2.1C2.5 9.7 2.5 10.1 2.5 12s0 2.3.06 3.6c.05 1.1.24 1.7.4 2.1.2.5.44.9.84 1.3.4.4.8.64 1.3.84.4.16 1 .35 2.1.4 1.3.06 1.7.06 4.8.06s3.5 0 4.8-.06c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.44 1.3-.84.4-.4.64-.8.84-1.3.16-.4.35-1 .4-2.1.06-1.3.06-1.7.06-3.6s0-2.3-.06-3.6c-.05-1.1-.24-1.7-.4-2.1a3.5 3.5 0 0 0-.84-1.3 3.5 3.5 0 0 0-1.3-.84c-.4-.16-1-.35-2.1-.4C15.5 4 15.1 4 12 4Zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8Zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Zm6.2-8.3a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0Z"/></svg>
+          <span><b>Instagram</b><em>@pulldistrict</em></span>
+          <span class="pijl">&rsaquo;</span>
+        </a>
+        <a class="social" href="https://tiktok.com/@pulldistrict" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.8a5 5 0 0 1-3-2.6V3h-2.9v11.9a2.9 2.9 0 1 1-2.1-2.8V9.1a5.8 5.8 0 1 0 5 5.7V9.4a7.9 7.9 0 0 0 4.5 1.4V7.9a4.9 4.9 0 0 1-1.5-.3 5 5 0 0 1 0-1.8Z"/></svg>
+          <span><b>TikTok</b><em>@pulldistrict</em></span>
+          <span class="pijl">&rsaquo;</span>
+        </a>
+        <a class="social" href="mailto:info@pulldistrict.nl">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.2L4.6 7H19.4L12 12.2Zm0 2.2 8-5.6V17H4V8.8l8 5.6Z"/></svg>
+          <span><b>Mail</b><em>info@pulldistrict.nl</em></span>
+          <span class="pijl">&rsaquo;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Even kort<br>schakelen</h2>
+      </div>
+      <div class="contact">
+        <div class="kaart reveal">
+          <h3>Kopen of verkopen</h3>
+          <p class="lead">Vraag over een kaart, een collectie aanbieden of iets laten reserveren voor de eerstvolgende beurs? Mail of stuur een DM op Instagram, meestal reageren we dezelfde dag.</p>
+          <a class="mail" href="mailto:info@pulldistrict.nl">info@pulldistrict.nl</a>
+        </div>
+        <div class="kaart reveal">
+          <h3>Organisatie van een beurs</h3>
+          <p class="lead">Zoek je nog vendors? We staan met singles en sealed, nemen onze eigen verlichting mee en hebben aan één tafel genoeg.</p>
+          <a class="mail" href="mailto:info@pulldistrict.nl?subject=Standhouder">info@pulldistrict.nl</a>
+          <p class="kvk">PullDistrict VOF, Nederland<br>KVK nummer nog invullen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; <span id="jaar">2026</span> PullDistrict VOF</span>
+    <span class="disclaimer">Niet gelieerd aan Nintendo, Creatures Inc., GAME FREAK of The Pokémon Company. Alle merknamen zijn eigendom van hun rechthebbenden.</span>
+  </div>
+</footer>
+
+<script>
+const MND = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+const DAG = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+document.getElementById('jaar').textContent = new Date().getFullYear();
+
+function esc(s){return String(s??'').replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));}
+
+fetch('beurzen.json?v=' + Date.now())
+  .then(r => r.json())
+  .then(data => render(data.beurzen || []))
+  .catch(() => {
+    document.getElementById('lijst').innerHTML =
+      '<p class="leeg">Agenda kon niet geladen worden. Ververs de pagina.</p>';
+  });
+
+function render(alle){
+  const vandaag = new Date(); vandaag.setHours(0,0,0,0);
+  const lijst = alle
+    .filter(b => b.datum && new Date(b.datum + 'T00:00:00') >= vandaag)
+    .sort((a,b) => a.datum.localeCompare(b.datum));
+
+  const el = document.getElementById('lijst');
+  if(!lijst.length){
+    el.innerHTML = '<p class="leeg">Nog geen beurs ingepland. Houd Instagram in de gaten, daar staat het als eerste.</p>';
+    return;
+  }
+
+  el.innerHTML = lijst.map(b => {
+    const d = new Date(b.datum + 'T00:00:00');
+    const plek = [b.locatie, b.plaats].filter(x => x && x !== 'Nog invullen').join(', ');
+    const meta = [DAG[d.getDay()], b.tijd, plek, b.stand].filter(Boolean).join('  ·  ');
+    const naam = b.url
+      ? '<a href="' + esc(b.url) + '" target="_blank" rel="noopener">' + esc(b.naam) + '</a>'
+      : esc(b.naam);
+    return '<div class="beurs reveal">' +
+      '<div class="datum"><span class="dag">' + d.getDate() + '</span>' +
+        '<span class="mnd">' + MND[d.getMonth()] + '</span> ' +
+        '<span class="jaar">' + d.getFullYear() + '</span></div>' +
+      '<div class="info"><h3>' + naam + '</h3><p>' + esc(meta) + '</p></div>' +
+      '<div class="tag ' + (b.status === 'bevestigd' ? '' : 'voorbehoud') + '">' +
+        (b.status === 'bevestigd' ? 'Bevestigd' : 'Onder voorbehoud') + '</div>' +
+    '</div>';
+  }).join('');
+
+  const n = lijst[0];
+  const d = new Date(n.datum + 'T00:00:00');
+  const dagen = Math.round((d - vandaag) / 86400000);
+  const plek = [n.locatie, n.plaats].filter(x => x && x !== 'Nog invullen').join(', ');
+  document.getElementById('nextCount').firstChild.nodeValue = dagen === 0 ? 'NU' : dagen;
+  document.getElementById('nextCountLabel').textContent = dagen === 0 ? 'we staan er' : (dagen === 1 ? 'dag te gaan' : 'dagen te gaan');
+  document.getElementById('nextNaam').textContent = n.naam;
+  document.getElementById('nextMeta').textContent =
+    [DAG[d.getDay()] + ' ' + d.getDate() + ' ' + MND[d.getMonth()], n.tijd, plek].filter(Boolean).join('  ·  ');
+  const tag = document.getElementById('nextTag');
+  tag.textContent = n.status === 'bevestigd' ? 'Bevestigd' : 'Onder voorbehoud';
+  tag.className = 'tag ' + (n.status === 'bevestigd' ? '' : 'voorbehoud');
+  document.getElementById('next').hidden = false;
+
+  observe();
+}
+
+function observe(){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {rootMargin: '0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(n => io.observe(n));
+}
+observe();
+</script>
+</body>
+</html>
