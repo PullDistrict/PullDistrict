@@ -1,0 +1,45 @@
+{
+  "_uitleg": "Voeg hier beurzen toe. Datum altijd als JJJJ-MM-DD. Status is 'bevestigd' of 'voorbehoud'. Beurzen die voorbij zijn verdwijnen automatisch van de site, verwijderen hoeft niet. Lege velden worden gewoon overgeslagen.",
+  "beurzen": [
+    {
+      "naam": "Collector-Fanatics",
+      "plaats": "Etten-Leur",
+      "locatie": "",
+      "datum": "2026-10-25",
+      "tijd": "",
+      "stand": "",
+      "status": "bevestigd",
+      "url": ""
+    },
+    {
+      "naam": "Xclusive Collector",
+      "plaats": "Tilburg",
+      "locatie": "",
+      "datum": "2026-10-31",
+      "tijd": "",
+      "stand": "",
+      "status": "bevestigd",
+      "url": ""
+    },
+    {
+      "naam": "Con-NXT",
+      "plaats": "Roelofarendsveen",
+      "locatie": "",
+      "datum": "2026-11-21",
+      "tijd": "",
+      "stand": "",
+      "status": "bevestigd",
+      "url": ""
+    },
+    {
+      "naam": "Beurs Essen",
+      "plaats": "Essen, Belgie",
+      "locatie": "",
+      "datum": "2027-01-09",
+      "tijd": "",
+      "stand": "",
+      "status": "bevestigd",
+      "url": ""
+    }
+  ]
+}
