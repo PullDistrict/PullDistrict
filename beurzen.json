@@ -42,6 +42,16 @@
       "url": ""
     },
     {
+      "naam": "Beurs Lekkerkerk",
+      "plaats": "Lekkerkerk",
+      "locatie": "",
+      "datum": "2026-12-05",
+      "tijd": "",
+      "stand": "",
+      "status": "bevestigd",
+      "url": ""
+    },
+    {
       "naam": "Beurs Essen",
       "plaats": "Essen, België",
       "locatie": "",
@@ -73,13 +83,3 @@
     },
     {
       "naam": "Beurs Harderwijk",
-      "plaats": "Harderwijk",
-      "locatie": "",
-      "datum": "2027-06-13",
-      "tijd": "",
-      "stand": "",
-      "status": "bevestigd",
-      "url": ""
-    }
-  ]
-}
