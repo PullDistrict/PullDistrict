@@ -7,11 +7,11 @@
     {"naam": "Xclusive Collector", "plaats": "Tilburg", "locatie": "", "datum": "2026-10-31", "tijd": "", "stand": "", "status": "bevestigd", "url": ""},
     {"naam": "Con-NXT", "plaats": "Roelofarendsveen", "locatie": "", "datum": "2026-11-21", "tijd": "", "stand": "", "status": "bevestigd", "url": ""},
     {"naam": "Beurs Lekkerkerk", "plaats": "Lekkerkerk", "locatie": "", "datum": "2026-12-05", "tijd": "", "stand": "", "status": "bevestigd", "url": ""},
+    {"naam": "Beurs Rosmalen", "plaats": "Rosmalen", "locatie": "", "datum": "2026-12-26", "tijd": "", "stand": "2 tafels", "status": "bevestigd", "url": ""},
     {"naam": "Beurs Essen", "plaats": "Essen, België", "locatie": "", "datum": "2027-01-09", "tijd": "", "stand": "", "status": "bevestigd", "url": ""},
+    {"naam": "Beurs Etten-Leur", "plaats": "Etten-Leur", "locatie": "", "datum": "2027-01-17", "tijd": "", "stand": "2 tafels", "status": "bevestigd", "url": ""},
     {"naam": "Collector Geeks", "plaats": "", "locatie": "", "datum": "2027-02-06", "tijd": "", "stand": "", "status": "bevestigd", "url": ""},
     {"naam": "Happy Collecting", "plaats": "", "locatie": "", "datum": "2027-02-27", "tijd": "", "stand": "", "status": "bevestigd", "url": ""},
     {"naam": "Beurs Harderwijk", "plaats": "Harderwijk", "locatie": "", "datum": "2027-06-13", "tijd": "", "stand": "", "status": "bevestigd", "url": ""}
-    {"naam": "Beurs Rosmalen", "plaats": "Rosmalen", "locatie": "", "datum": "2026-12-26", "tijd": "", "stand": "2 tafels", "status": "bevestigd", "url": ""},
-    {"naam": "Beurs Etten-Leur", "plaats": "Etten-Leur", "locatie": "", "datum": "2027-01-17", "tijd": "", "stand": "2 tafels", "status": "bevestigd", "url": ""},
   ]
 }
