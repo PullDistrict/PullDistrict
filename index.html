@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PullDistrict, Pokémon TCG singles &amp; sealed</title>
-<meta name="description" content="PullDistrict verkoopt Pokémon TCG singles en sealed op beurzen in Nederland en België. Bekijk waar we staan en verkoop je collectie.">
+<title>Pokémon kaarten verkopen of kopen op beurzen | PullDistrict</title>
+<meta name="description" content="Pokémon kaarten verkopen? Wij kopen je collectie voor tot 90% van de marktwaarde en betalen direct. Singles en sealed op beurzen in Nederland en België.">
 <link rel="canonical" href="https://pulldistrict.nl/">
 <meta name="theme-color" content="#17181A">
 
@@ -18,6 +18,37 @@
 <meta property="og:image:height" content="500">
 <meta property="og:image:alt" content="PullDistrict, singles en sealed">
 <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "PullDistrict",
+      "url": "https://pulldistrict.nl/",
+      "inLanguage": "nl"
+    },
+    {
+      "@type": "Organization",
+      "name": "PullDistrict",
+      "legalName": "PullDistrict VOF",
+      "url": "https://pulldistrict.nl/",
+      "logo": "https://pulldistrict.nl/pulldistrict-avatar-1000.png",
+      "email": "info@pulldistrict.nl",
+      "description": "Pokémon TCG singles en sealed op beurzen in Nederland en België. Inkoop van Pokémon kaarten en collecties.",
+      "areaServed": [
+        {"@type": "Country", "name": "Nederland"},
+        {"@type": "Country", "name": "België"}
+      ],
+      "sameAs": [
+        "https://www.instagram.com/pull_district/",
+        "https://www.tiktok.com/@pulldistrict"
+      ]
+    }
+  ]
+}
+</script>
 
 <link rel="icon" type="image/svg+xml" href="pulldistrict-avatar-1000.svg">
 <link rel="icon" type="image/png" sizes="1000x1000" href="pulldistrict-avatar-1000.png">
@@ -276,7 +307,7 @@ footer{border-top:1px solid var(--line);padding:2.5rem 0;font-family:var(--mono)
     <div class="wrap">
       <p class="eyebrow">Pokémon TCG, singles &amp; sealed</p>
       <h1>Wij staan<br>op de <em>beurs</em>.</h1>
-      <p class="lead">Geen webshop, geen wachten op pakketjes. Je vindt onze case op beurzen door Nederland en België: vintage, moderne singles, slabs en sealed. Kom langs, pak de kaart in je hand.</p>
+      <p class="lead">Geen webshop, geen wachten op pakketjes. Je vindt onze case met Pokémon kaarten op beurzen door Nederland en België: vintage, moderne singles, slabs en sealed. Kom langs, pak de kaart in je hand.</p>
 
       <div class="next" id="next" hidden>
         <div class="count" id="nextCount">--<small id="nextCountLabel">dagen</small></div>
@@ -303,11 +334,12 @@ footer{border-top:1px solid var(--line);padding:2.5rem 0;font-family:var(--mono)
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="eyebrow">Inkoop</p>
-        <h2>Verkoop je<br>collectie</h2>
+        <h2>Pokémon kaarten<br>verkopen?</h2>
       </div>
       <div class="inkoop">
         <div class="reveal">
           <p class="lead" style="margin-bottom:2rem">Van één dure kaart tot een hele binder of zolderdoos. We kopen rechtstreeks van verzamelaars, betalen direct en nemen alles in één keer over. Geen consignment, geen gedoe achteraf.</p>
+          <p style="margin:-1rem 0 2rem"><a class="mail" href="/pokemon-kaarten-verkopen/">Alles over je kaarten verkopen &rsaquo;</a></p>
           <ol class="stappen">
             <li><div><strong>Stuur je lijst</strong><span>Mail of DM een lijst of gewoon foto's van je kaarten. Grote collectie? Foto's van de binderpagina's zijn genoeg.</span></div></li>
             <li><div><strong>Je krijgt een bod</strong><span>We taxeren op actuele marktwaarde en sturen je een bod met uitleg per onderdeel.</span></div></li>
@@ -450,7 +482,30 @@ function render(alle){
   tag.className = 'tag ' + (n.status === 'bevestigd' ? '' : 'voorbehoud');
   document.getElementById('next').hidden = false;
 
+  eventsVoorGoogle(lijst);
   observe();
+}
+
+// beurzen als Event-structured data voor Google (alleen beurzen met een plaats of locatie)
+function eventsVoorGoogle(lijst){
+  const events = lijst.filter(b => b.plaats || b.locatie).map(b => {
+    const e = {
+      '@type': 'Event',
+      name: b.naam,
+      startDate: b.datum,
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      location: {'@type': 'Place', name: b.locatie || b.plaats, address: b.plaats || b.locatie},
+      description: 'PullDistrict staat op ' + b.naam + ' met Pokémon TCG singles en sealed. Ook inkoop en trades.'
+    };
+    if(b.url) e.url = b.url;
+    return e;
+  });
+  if(!events.length) return;
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.textContent = JSON.stringify({'@context': 'https://schema.org', '@graph': events}).replace(/</g, '\\u003c');
+  document.head.appendChild(s);
 }
 
 function observe(){
